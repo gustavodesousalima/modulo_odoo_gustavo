@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+
+        <record id="modelo_odoo_gustavo_view_kanban" model="ir.ui.view">
+            <field name="name">modelo.odoo.gustavo.view.kanban</field>
+            <field name="model">modelo.odoo.gustavo</field>
+            <field name="arch" type="xml">
+                <kanban>
+                <field name="name" />
+                <field name="date_order" />
+                <field name="valor_total" />
+                <templates>
+                    <t t-name="kanban-box">
+
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-6">
+                                    <field name="name"/>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <field name="date_order"/>
+                                </div>
+                            </div>
+                                 <div>
+                                    <field name="valor_total"/>
+                                </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+            </field>
+        </record>
+
+        <!-- Definindo a visualização da lista -->
+        <record id="view_modelo_odoo_gustavo_tree" model="ir.ui.view">
+            <field name="name">modelo.odoo.gustavo.tree</field>
+            <field name="model">modelo.odoo.gustavo</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="ja_entregue == True" >
+                    <field name="name"/>
+                    <field name="date_order"/>
+                    <field name="description"/>
+                    <field name="valor_total"/>
+                    <field name="ja_entregue" />
+                    <field name="tipo_pedido" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Definindo a visualização do formulário -->
+        <record id="view_modelo_odoo_gustavo_form" model="ir.ui.view">
+            <field name="name">modelo.odoo.gustavo.form</field>
+            <field name="model">modelo.odoo.gustavo</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="date_order"/>
+                            <field name="description"/>
+                            <field name="valor_total"/>
+                            <field name="ja_entregue" />
+                            <field name="tipo_pedido" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Definindo ação para abrir a visualização da lista -->
+        <record id="action_modelo_odoo_gustavo" model="ir.actions.act_window">
+            <field name="name">Módulo Odoo Gustavo</field>
+            <field name="res_model">modelo.odoo.gustavo</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_id" ref="view_modelo_odoo_gustavo_tree"/>
+        </record>
+
+        <!-- Define o menu para abrir a visualização da lista -->
+        <menuitem id="menu_modelo_odoo_gustavo" name="Módulo Odoo Gustavo" sequence="10" action="action_modelo_odoo_gustavo"/>
+
+    </data>
+</odoo>

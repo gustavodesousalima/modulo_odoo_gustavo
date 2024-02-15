@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+modulo_odoo_gustavo.access_modelo_odoo_gustavo,access_modelo_odoo_gustavo,modulo_odoo_gustavo.model_modelo_odoo_gustavo,base.group_user,1,1,1,1
