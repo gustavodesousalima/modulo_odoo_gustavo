@@ -29,15 +29,6 @@
                         default_period="in_this_month"
                     />
 
-                    <group expand="1" string="Agrupar Por">
-                        <filter 
-                            name="group_ja_entregue"
-                            string="Já Entregue"
-                            context="('group_by: ja_entregue')"
-                        />
-                    
-                    </group>
-
                 </search>    
            </field>
         </record>
