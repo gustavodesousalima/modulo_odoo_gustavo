@@ -3,6 +3,45 @@
 <odoo>
     <data>
 
+        <record id="modulo_odoo_gustavo_search_view"  model="ir.ui.view">
+            <field name="name">modelo.odoo.gustavo.search.view</field>
+            <field name="model">modelo.odoo.gustavo</field>
+            <field name="arch" type="xml">
+                <search>
+
+                    <filter
+                        name="filter_has_ja_entregue"
+                        string="Já Entregue"
+                        domain="[('ja_entregue', '=', True)]"
+                    />
+
+                    <separator/>
+
+                    <filter
+                        name="has_not_ja_entregue"
+                        string="Não Entregue"
+                        domain="[('ja_entregue', '=', False)]"
+                    />
+
+                    <filter
+                        name="filter_has_date_order"
+                        string=" data de Pedido"
+                        default_period="in_this_month"
+                    />
+
+                    <group expand="1" string="Agrupar Por">
+                        <filter 
+                            name="group_ja_entregue"
+                            string="Já Entregue"
+                            context="('group_by: ja_entregue')"
+                        />
+                    
+                    </group>
+
+                </search>    
+           </field>
+        </record>
+
         <record id="modelo_odoo_gustavo_view_kanban" model="ir.ui.view">
             <field name="name">modelo.odoo.gustavo.view.kanban</field>
             <field name="model">modelo.odoo.gustavo</field>
@@ -75,6 +114,7 @@
             <field name="res_model">modelo.odoo.gustavo</field>
             <field name="view_mode">tree,form,kanban</field>
             <field name="view_id" ref="view_modelo_odoo_gustavo_tree"/>
+            <field name="context"> {'modulo_odoo_gustavo_search_view': 1} </field>
         </record>
 
         <!-- Define o menu para abrir a visualização da lista -->
